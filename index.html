@@ -3,448 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="个人博客 - 欢迎来到我的博客">
-    <title>欢迎来到我的博客</title>
-    
-    <!-- KaTeX CSS -->
+    <meta name="description" content="一封写给访客的信，记录我的小站与正在发生的事情。">
+    <title>一封写给你的信</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css">
-    
-    <style>
-        /* 全局样式设置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: "KaiTi", "楷体", "STKaiti", "SimKai", serif;
-            color: #000000;
-            background: linear-gradient(135deg, #E8F5E9 0%, #F0FFF4 50%, #E8F8F5 100%);
-            line-height: 1.8;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            background-color: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2E7D32;
-            font-size: 2.5rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 3px solid #4CAF50;
-        }
-        
-        h2 {
-            color: #388E3C;
-            font-size: 1.8rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            padding-left: 0.5rem;
-            border-left: 5px solid #66BB6A;
-        }
-        
-        h4 {
-            color: #43A047;
-            font-size: 1.3rem;
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        p {
-            margin-bottom: 1rem;
-            text-indent: 2em;
-        }
-        
-        .intro {
-            background-color: #E8F5E9;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border-left: 4px solid #4CAF50;
-        }
-        
-        .intro p {
-            text-indent: 0;
-        }
-        
-        .highlight {
-            color: #D32F2F;
-            font-weight: bold;
-        }
-        
-        /* 头像样式 */
-        .avatar-section {
-            text-align: center;
-            margin: 2rem 0;
-        }
-        
-        .avatar {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            border: 5px solid #4CAF50;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-        }
-        
-        .avatar:hover {
-            transform: scale(1.05);
-        }
-        
-        /* 任务列表样式 */
-        .task-list {
-            background-color: #FFF9C4;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 1rem 0;
-        }
-        
-        .task-list ul {
-            list-style: none;
-            padding-left: 1rem;
-        }
-        
-        .task-list li {
-            margin: 0.8rem 0;
-            font-size: 1.1rem;
-        }
-        
-        .task-list input[type="checkbox"] {
-            margin-right: 0.5rem;
-            transform: scale(1.2);
-        }
-        
-        .code-example {
-            background-color: #263238;
-            color: #AED581;
-            padding: 0.5rem;
-            border-radius: 4px;
-            font-family: 'Courier New', monospace;
-            margin: 1rem 0;
-            overflow-x: auto;
-        }
-        
-        /* 图片展示区 */
-        .image-gallery {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-        
-        .image-gallery img {
-            flex: 1;
-            min-width: 300px;
-            max-width: 48%;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            transition: transform 0.3s ease;
-        }
-        
-        .image-gallery img:hover {
-            transform: translateY(-5px);
-        }
-        
-        .note {
-            color: #666;
-            font-style: italic;
-            margin-top: 0.5rem;
-            text-align: center;
-        }
-        
-        /* iframe 容器 */
-        .video-container, .music-container {
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .video-container iframe {
-            width: 100%;
-            max-width: 800px;
-            height: 500px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .music-container iframe {
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* 代码块样式 */
-        .code-section {
-            margin: 2rem 0;
-        }
-        
-        .run-button {
-            background: linear-gradient(135deg, #66BB6A, #43A047);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 4px 10px rgba(76, 175, 80, 0.3);
-            transition: all 0.3s ease;
-            margin-bottom: 1rem;
-        }
-        
-        .run-button:hover {
-            background: linear-gradient(135deg, #43A047, #2E7D32);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(76, 175, 80, 0.4);
-        }
-        
-        .run-button:active {
-            transform: translateY(0);
-        }
-        
-        pre {
-            background-color: #263238;
-            color: #A5D6A7;
-            padding: 1.5rem;
-            border-radius: 8px;
-            overflow-x: auto;
-            margin: 1rem 0;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        code {
-            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
-            font-size: 0.95rem;
-        }
-        
-        /* 数学公式区域 */
-        .math-section {
-            background-color: #F5F5F5;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .katex-display {
-            margin: 1.5rem 0;
-        }
-        
-        /* 表格样式 */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background-color: #E1F5FE;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-        
-        td {
-            padding: 1rem;
-            text-align: center;
-            font-size: 1.1rem;
-            color: #01579B;
-        }
-        
-        /* 响应式设计 */
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-                margin: 1rem;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            h2 {
-                font-size: 1.5rem;
-            }
-            
-            .image-gallery {
-                flex-direction: column;
-            }
-            
-            .image-gallery img {
-                max-width: 100%;
-            }
-            
-            .video-container iframe {
-                height: 300px;
-            }
-        }
-        
-        /* 滚动条样式 */
-        ::-webkit-scrollbar {
-            width: 10px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: #E8F5E9;
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: #66BB6A;
-            border-radius: 5px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: #43A047;
-        }
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>欢迎来到我的博客</h1>
-        
-        <div class="intro">
-            <p>我看到了不少开源的构建个人博客的项目，但是没有域名和服务器，所以打算自己利用Github的Page写一个</p>
-            <p>它现在是<span class="highlight">简陋的</span>，但是之后到暑假了我会<span class="highlight">更新</span>它，并构建一些可以交互的页面，更换一个方便好记的的域名。</p>
-            <p style="text-indent: 0;">现在先放一些文字，图片，视频，链接来试一下这个网页。</p>
+    <main>
+        <header>
+            <div class="stamp" aria-hidden="true">邮</div>
+            <div class="eyebrow">Letter / 个人小站</div>
+            <h1>一封写给你的信</h1>
+            <div class="meta">
+                <span>来自：Huyaduo 的小站</span>
+                <span>地点：互联网上的一张信纸</span>
+                <span>主题：记录、练习与日常碎片</span>
+            </div>
+        </header>
+
+        <p class="intro">你好，感谢你来到这里。这个页面是一封信，也是我的练习场。我在这里试不同的排版、图片、代码、公式和嵌入内容，慢慢把它打磨成真正属于自己的小站。</p>
+
+        <div class="callout">
+            你现在看到的是纯静态页面版本，未来我会继续填内容、换域名、加一些互动页面。欢迎常来看看更新。
         </div>
-        
-        <section id="avatar" class="avatar-section">
-            <h2>头像</h2>
-            <p>下面是我的头像</p>
-            <img src="https://avatars.githubusercontent.com/u/211213103?v=4" alt="我的头像" class="avatar">
-        </section>
-        
-        <section id="tasks">
-            <h2>做个任务列表</h2>
-            <div class="code-example">
-                //- [ ] 输入你的内容
+
+        <section id="toc">
+            <h2>这封信的目录</h2>
+            <div class="toc">
+                <a href="#about">自我介绍</a>
+                <a href="#todo">近况清单</a>
+                <a href="#gallery">信中夹带的照片</a>
+                <a href="#media">影音角落</a>
+                <a href="#code">代码与公式</a>
+                <a href="#ending">落款</a>
+                <a href="notes.html">信笺集</a>
             </div>
-            <div class="task-list">
-                <ul>
-                    <li><input type="checkbox"> 和宇宙荣耀maze哥哥打游戏</li>
-                    <li><input type="checkbox"> 复习期末考试</li>
-                    <li><input type="checkbox"> 吃一碗猪脚饭，发誓要挣一百万</li>
-                </ul>
-            </div>
-            <p class="note">注意这是看网图，不是我对象，我对象更好看</p>
         </section>
-        
+
+        <div class="divider"></div>
+
+        <section id="about">
+            <h2>自我介绍</h2>
+            <div class="avatar-wrap">
+                <img class="avatar" src="images/avatar.jpg" alt="我的头像">
+                <div>
+                    <p>我看过不少开源的个人博客项目，但暂时没有域名和服务器，于是决定先用 GitHub Pages 搭一个简单的落脚点。</p>
+                    <p>现在内容还比较简陋，但我会在暑假慢慢补完它：把页面做得更好看、内容更完整，也希望能加入一些可以互动的小功能。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="todo">
+            <h2>近况清单</h2>
+            <p>给自己写一点小任务，提醒我继续前进。</p>
+            <ul class="checklist">
+                <li><input type="checkbox"> 和宇宙荣耀 maze 哥哥打游戏</li>
+                <li><input type="checkbox"> 复习期末考试</li>
+                <li><input type="checkbox"> 吃一碗猪脚饭，发誓要挣一百万</li>
+            </ul>
+            <p class="note">注：下面的图片只是随手收集的风格参考，不是我对象（我对象更好看）。</p>
+        </section>
+
         <section id="gallery">
-            <div class="image-gallery">
-                <img src="https://raw.bgithub.xyz/Huyaduo1/skills-communicate-using-markdown/refs/heads/master/hhh.jpg" alt="图片1">
-                <img src="https://raw.bgithub.xyz/Huyaduo1/skills-communicate-using-markdown/refs/heads/master/R-C.jpg" alt="图片2">
+            <h2>信中夹带的照片</h2>
+            <div class="gallery">
+                <img src="images/photo-1.jpg" alt="照片 1">
+                <img src="images/photo-2.jpg" alt="照片 2">
             </div>
         </section>
-        
-        <section id="video">
-            <h2>插入一段视频 看坤坤跳舞</h2>
-            <p>好了正片来了，Git上传的视频文件有问题，这里放一个b站开源的（垃圾抖音）</p>
-            <div class="video-container">
-                <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=984714877&bvid=BV1ct4y1n7t9&cid=807427488&p=1" 
-                        allowfullscreen="allowfullscreen" 
-                        scrolling="no" 
-                        frameborder="0" 
+
+        <section id="media">
+            <h2>影音角落</h2>
+            <div class="media video">
+                <p>视频文件上传在 GitHub 上有点麻烦，所以先放一个外链的 B 站片段。</p>
+                <iframe src="https://player.bilibili.com/player.html?isOutside=true&aid=984714877&bvid=BV1ct4y1n7t9&cid=807427488&p=1"
+                        allowfullscreen="allowfullscreen"
+                        scrolling="no"
                         sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts">
                 </iframe>
             </div>
-        </section>
-        
-        <section id="music">
-            <h2>上链接，听歌</h2>
-            <div class="music-container">
-                <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" 
-                        width="330" height="86" 
-                        src="//music.163.com/outchain/player?type=2&id=475479888&auto=1&height=66">
+            <div class="media">
+                <p>如果你喜欢边读边听歌，这里也有一首歌。</p>
+                <iframe src="https://music.163.com/outchain/player?type=2&id=475479888&auto=1&height=66"
+                        width="330"
+                        height="86"
+                        title="网易云音乐外链播放器">
                 </iframe>
             </div>
         </section>
-        
-        <section id="code" class="code-section">
-            <h2>添加C语言的一个代码块</h2>
-            <button type="button" class="run-button" onclick="alert('Hello World!')">点击这里运行下面的程序</button>
-            
-            <pre><code class="language-c">#include&lt;stdio.h&gt;
+
+        <section id="code">
+            <h2>代码与公式</h2>
+            <p>这里放一些代码片段和数学公式，提醒自己要继续学习。</p>
+            <button class="button" type="button" id="hello-button">点我说一句你好</button>
+            <pre><code class="language-c">#include &lt;stdio.h&gt;
 int main()
 {
     printf("hello world");
     return 0;
 }</code></pre>
-            
-            <p>这是javascript的，好像看不出来风格有什么不同</p>
-            <pre><code class="language-javascript">var myVar = "Hello, world!";</code></pre>
-            
-            <p style="text-indent: 0;">效果不错欧</p>
+            <pre><code class="language-javascript">const greeting = "Hello, world!";</code></pre>
+
+            <div class="divider"></div>
+
+            <div class="katex-display">$$\sin^2(\theta) + \cos^2(\theta) = 1$$</div>
+            <div class="katex-display">$$\sum_{n=1}^\infty k$$</div>
+            <div class="katex-display">$$\int_a^b f(x)\,dx$$</div>
+            <div class="katex-display">$$\lim\limits_{x\to\infty}\exp(-x) = 0$$</div>
+            <div class="katex-display">$$\left|\begin{matrix}
+                a & b & c \\
+                d & e & f \\
+                g & h & i
+            \end{matrix}\right|$$</div>
         </section>
-        
-        <table>
-            <tr>
-                <td>接下来干点什么好呢</td>
-            </tr>
-        </table>
-        
-        <section id="math" class="math-section">
-            <h4>写几个数学公式</h4>
-            
-            <div class="katex-display">
-                $$\sin^2(\theta) + \cos^2(\theta) = 1$$
-            </div>
-            
-            <div class="katex-display">
-                $$\sum_{n=1}^\infty k$$
-            </div>
-            
-            <div class="katex-display">
-                $$\int_a^b f(x)\,dx$$
-            </div>
-            
-            <div class="katex-display">
-                $$\lim\limits_{x\to\infty}\exp(-x) = 0$$
-            </div>
-            
-            <h4>写个矩阵</h4>
-            
-            <div class="katex-display">
-                $$\left|\begin{matrix}
-                    a & b & c \\
-                    d & e & f \\
-                    g & h & i
-                \end{matrix}\right|$$
+
+        <section id="ending">
+            <h2>落款</h2>
+            <p>如果你愿意，也可以从页面开头重新读一遍这封信。</p>
+            <p><a href="#toc" style="color: var(--accent); text-decoration: none;">回到目录</a></p>
+            <div class="signature">
+                此致
+                <span>Huyaduo</span>
+                <span>写于 · GitHub Pages</span>
             </div>
         </section>
-        
-        <table>
-            <tr>
-                <td>Markdown还可以干什么呢，试一下内嵌的HTML吧</td>
-            </tr>
-        </table>
-        
-        <p style="text-indent: 0;">建议回去看看文章开头 <a href="#avatar" style="color: #4CAF50; text-decoration: none; font-weight: bold;">再看一遍</a>。</p>
-        
-        <div class="video-container">
-            <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=114987615985203&bvid=BV1NRtBzMETm&cid=31541363145&p=1" 
-                    scrolling="no" 
-                    border="0" 
-                    frameborder="no" 
-                    framespacing="0" 
-                    allowfullscreen="true">
-            </iframe>
-        </div>
-    </div>
-    
-    <!-- KaTeX JavaScript -->
+
+        <footer>这是一张还在慢慢被填满的信纸。</footer>
+    </main>
+
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"></script>
-    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js" 
-            onload="renderMathInElement(document.body, {
-                delimiters: [
-                    {left: '$$', right: '$$', display: true},
-                    {left: '$', right: '$', display: false}
-                ]
-            });">
-    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"></script>
+    <script defer src="js/main.js"></script>
 </body>
 </html>
